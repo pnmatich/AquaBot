@@ -2,8 +2,8 @@
 
 import os
 import glob
-import time
-
+import time 
+import logging 
 
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
@@ -12,6 +12,8 @@ os.system('modprobe w1-therm')
 base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob(base_dir + '28*')[0]
 device_file = device_folder + '/w1_slave'
+
+logging.basicConfig(filename='temperature.log', filemode='a', format='%(created)f %(message)s', level=logging.INFO) 
 
 def read_temp_raw():
     f = open(device_file, 'r')
@@ -29,10 +31,10 @@ def read_temp_c():
     if equals_pos != -1:
         temp_string = lines[1][equals_pos+2:]
         temp_c = int(temp_string) / 1000.0 # TEMP_STRING IS THE SENSOR OUTPUT, MAKE SURE IT'S AN INTEGER TO DO THE MATH
-        temp_c = str(round(temp_c, 1)) # ROUND THE RESULT TO 1 PLACE AFTER THE DECIMAL, THEN CONVERT IT TO A STRING
+        temp_c = round(temp_c, 1) # ROUND THE RESULT TO 1 PLACE AFTER THE DECIMAL
         return temp_c
 
 
 while True:
-
-    print "Temp: " + read_temp_c() + unichr(223) + "C"
+    temp=read_temp_c
+    logging.info('Temp={0:0.1f} C %'.format(read_temp_c())) 

@@ -10,3 +10,11 @@ The following additional steps should also be taken:
 - append `dtoverlay=w1-gpio,gpiopin=4` to /boot/config.txt
 - run `sudo modprobe w1–gpio`
 - reboot the system (you might need to run this step between each of the above steps)
+
+## Temperature sensor python script
+
+The temperature sensor script reads the output of the tempurature sensor on the GPIO pins, and writes the output to stdout.
+
+It can be run using the following command.
+```./temp-sensor.py
+
