@@ -41,4 +41,6 @@ def read_temp_c():
 
 while True:
     temp=read_temp_c
-    logging.info('Temp={0:0.1f} C %'.format(read_temp_c()))
+    log_string='Temp={0:0.1f} C %'.format(read_temp_c())
+    print log_string
+    logging.info(log_string)
