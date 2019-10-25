@@ -2,18 +2,22 @@
 
 import os
 import glob
-import time 
-import logging 
+import logging
+import time
+
+computerName=os.uname()[1]
+
+if computerName != 'raspberrypi':
+    raise Exception('Computer named {} is not named raspberrypi'.format(computerName))
 
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
-
 
 base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob(base_dir + '28*')[0]
 device_file = device_folder + '/w1_slave'
 
-logging.basicConfig(filename='logs/temperature.log', filemode='a', format='%(created)f %(message)s', level=logging.INFO) 
+logging.basicConfig(filename='logs/temperature.log', filemode='a', format='%(created)f %(message)s', level=logging.INFO)
 
 def read_temp_raw():
     f = open(device_file, 'r')
@@ -37,4 +41,4 @@ def read_temp_c():
 
 while True:
     temp=read_temp_c
-    logging.info('Temp={0:0.1f} C %'.format(read_temp_c())) 
+    logging.info('Temp={0:0.1f} C %'.format(read_temp_c()))
