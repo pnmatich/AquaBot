@@ -50,4 +50,4 @@ while True:
     metric.add_tag('location', 'Surrey')
     metric.add_value('temperature', temp_string)
     print(metric)
-    logging.info(temp_string)
+    logging.info(metric)
