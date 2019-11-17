@@ -5,6 +5,8 @@ import glob
 import logging
 import time
 
+from influx_line_protocol import Metric
+
 computerName=os.uname()[1]
 
 if computerName != 'raspberrypi':
@@ -38,9 +40,22 @@ def read_temp_c():
         temp_c = round(temp_c, 1) # ROUND THE RESULT TO 1 PLACE AFTER THE DECIMAL
         return temp_c
 
+metric = Metric("AquaBot")
 
+
+print(now)
 while True:
-    temp=read_temp_c
-    log_string='Temp={0:0.1f} C %'.format(read_temp_c())
-    print log_string
-    logging.info(log_string)
+    temp_string='{0:0.1f}'.format(read_temp_c())
+    now = int(round(time.time() * 1000000000))
+    metric.with_timestamp(now)
+    metric.add_tag('location', 'Surrey')
+    metric.add_value('temperature', temp_string)
+    print(metric)
+    logging.info(temp_string)
+
+
+
+
+
+
+"""

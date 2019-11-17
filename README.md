@@ -12,7 +12,8 @@ The following additional steps should also be taken:
 - append `dtoverlay=w1-gpio,gpiopin=4` to /boot/config.txt
 - run `sudo modprobe w1–gpio`
 - reboot the system (you might need to run this step between each of the above steps)
-
+- set up passwordless ssh with ssh keys
+    - https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md
 ### Setting up your arch linux box
 
 #### Installing docker
