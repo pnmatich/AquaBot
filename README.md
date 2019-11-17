@@ -19,7 +19,6 @@ The following additional steps should also be taken:
     - copy the public key to ~/.ssh/authorized_keys on the raspberrypi
 - pip install influxdb influx_line_protocol
 
-
 ### Setting up your arch linux box
 
 #### Installing docker
