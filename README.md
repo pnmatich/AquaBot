@@ -3,7 +3,7 @@ Aquaponics monitoring system
 
 ## Requirements
 
-### Setting up your raspberry pi
+### Setting up your raspberry pi and monitoring station
 
 The raspberry pi for this project should be setup to use the raspbian operating system.
 
@@ -14,6 +14,12 @@ The following additional steps should also be taken:
 - reboot the system (you might need to run this step between each of the above steps)
 - set up passwordless ssh with ssh keys
     - https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md
+    - create an ssh key on the monitoring station
+        - ssh-keygen -f ./AquaBot/rsync/ssh/id_rsa
+    - copy the public key to ~/.ssh/authorized_keys on the raspberrypi
+- pip install influxdb influx_line_protocol
+
+
 ### Setting up your arch linux box
 
 #### Installing docker

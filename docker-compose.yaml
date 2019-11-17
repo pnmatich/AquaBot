@@ -58,6 +58,14 @@ telegraf:
         DATABASE: "telegraf"
     tty: true
     volumes:
-        - /var/run/docker.sock:/var/run/docker.sock
         - ./logs:/AquaBot/logs/
+        - /var/run/docker.sock:/var/run/docker.sock
+    volumes_from:
+        - influxdb-data
     privileged: true
+
+
+rsync:
+    build: rsync
+    volumes:
+        - ./logs:/AquaBot/logs/

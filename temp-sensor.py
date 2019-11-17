@@ -20,7 +20,7 @@ base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob(base_dir + '28*')[0]
 device_file = device_folder + '/w1_slave'
 
-logging.basicConfig(filename='logs/temperature.log', filemode='a', format='%(created)f %(message)s', level=logging.INFO)
+logging.basicConfig(filename='logs/temperature.log', filemode='a', format='%(message)s', level=logging.INFO)
 
 def read_temp_raw():
     f = open(device_file, 'r')
