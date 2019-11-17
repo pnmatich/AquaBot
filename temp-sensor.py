@@ -4,6 +4,7 @@ import os
 import glob
 import logging
 import time
+from influxdb import InfluxDBClient
 
 from influx_line_protocol import Metric
 
@@ -42,8 +43,6 @@ def read_temp_c():
 
 metric = Metric("AquaBot")
 
-
-print(now)
 while True:
     temp_string='{0:0.1f}'.format(read_temp_c())
     now = int(round(time.time() * 1000000000))
@@ -52,10 +51,3 @@ while True:
     metric.add_value('temperature', temp_string)
     print(metric)
     logging.info(temp_string)
-
-
-
-
-
-
-"""
