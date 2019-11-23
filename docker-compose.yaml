@@ -64,7 +64,6 @@ telegraf:
         - influxdb-data
     privileged: true
 
-
 rsync:
     build: rsync
     volumes:

@@ -44,10 +44,9 @@ def read_temp_c():
 metric = Metric("AquaBot")
 
 while True:
-    temp_string='{0:0.1f}'.format(read_temp_c())
     now = int(round(time.time() * 1000000000))
     metric.with_timestamp(now)
     metric.add_tag('location', 'Surrey')
-    metric.add_value('temperature', temp_string)
+    metric.add_value('temperature', read_temp_c())
     print(metric)
     logging.info(metric)
