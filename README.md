@@ -18,6 +18,9 @@ The following additional steps should also be taken:
         - ssh-keygen -f ./AquaBot/rsync/ssh/id_rsa
     - copy the public key to ~/.ssh/authorized_keys on the raspberrypi
 - pip install influxdb influx_line_protocol
+- add temp-sensor.py to init.d startup scripts
+    - sudo ln -s /home/pi/Workshop/AquaBot/temp-sensor.py /etc/init.d/temp-sensor.py
+    - sudo update-rc.d temp-sensor.py defaults
 
 ### Setting up your arch linux box
 
