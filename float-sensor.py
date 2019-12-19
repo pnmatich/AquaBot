@@ -36,7 +36,7 @@ GPIO.add_event_detect(24, GPIO.RISING, callback=raising_edge_callback)
 GPIO.add_event_detect(24, GPIO.FALLING, callback=falling_edge_callback)
 
 while True:
-time.sleep(1)
+    time.sleep(1)
 
 #    except KeyboardInterrupt:
 #        GPIO.cleanup()       # clean up GPIO on CTRL+C exit
