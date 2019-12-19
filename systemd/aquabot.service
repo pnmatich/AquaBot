@@ -1,0 +1,9 @@
+[Unit]
+Description=Monitors aquaponics systems
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/pmatich/Workshop/AquaBot/temp-sensor.py
+
+[Install]
+WantedBy=multi-user.target
