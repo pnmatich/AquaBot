@@ -1,6 +1,6 @@
 #!/usr/bin/env python2.7
 # original script by Alex Eames https://raspi.tv
-
+import time
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 
