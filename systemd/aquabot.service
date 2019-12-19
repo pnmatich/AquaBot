@@ -3,7 +3,7 @@ Description=Monitors aquaponics systems
 After=multi-user.target
 
 [Service]
-ExecStart=/usr/bin/python3 /home/pmatich/Workshop/AquaBot/temp-sensor.py
+ExecStart=/usr/bin/python3 /home/pi/Workshop/AquaBot/temp-sensor.py
 User=pi
 Group=pi
 
