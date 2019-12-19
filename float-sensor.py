@@ -13,11 +13,8 @@ GPIO.setup(24, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 # now we'll define the threaded callback function
 # this will run in another thread when our event is detected
 
-def falling_edge_callback(channel):
-    print('falling edge detected on channel %s'%channel)
-
-def raising_edge_callback(channel):
-    print('raising edge detected on channel %s'%channel)
+def edge_callback(channel):
+    print('raising or falling edge detected on channel %s'%channel)
 
 print "Make sure you have a button connected so that when pressed"
 print "it will connect GPIO port 23 (pin 16) to GND (pin 6)\n"
@@ -30,10 +27,8 @@ raw_input("Press Enter when ready\n>")
 # else is happening in the program, the function "my_callback" will be run
 # It will happen even while the program is waiting for
 # a falling edge on the other button.
-GPIO.add_event_detect(23, GPIO.RISING, callback=raising_edge_callback)
-GPIO.add_event_detect(23, GPIO.FALLING, callback=falling_edge_callback)
-GPIO.add_event_detect(24, GPIO.RISING, callback=raising_edge_callback)
-GPIO.add_event_detect(24, GPIO.FALLING, callback=falling_edge_callback)
+GPIO.add_event_detect(23, GPIO.BOTH, callback=edge_callback)
+GPIO.add_event_detect(24, GPIO.BOTH, callback=edge_callback)
 
 while True:
     time.sleep(1)
