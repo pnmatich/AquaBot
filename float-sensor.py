@@ -1,11 +1,10 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/python
 # original script by Alex Eames https://raspi.tv
 import time
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 
 # GPIO 23 & 17 set up as inputs.
-
 GPIO.setup(23, GPIO.IN)
 GPIO.setup(17, GPIO.IN)
 

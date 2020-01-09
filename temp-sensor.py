@@ -5,7 +5,6 @@ import glob
 import logging
 import time
 from influxdb import InfluxDBClient
-
 from influx_line_protocol import Metric
 
 computerName=os.uname()[1]
