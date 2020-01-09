@@ -2,7 +2,7 @@
 ##### This docker-compose file is based off of the tig-stack - https://github.com/matisku/tig-stack.git
 ###############
 grafana:
-    image: matisq/grafana:latest
+    build: grafana
     ports:
         - 3000:3000
     links:
