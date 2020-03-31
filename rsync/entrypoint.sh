@@ -1,6 +1,6 @@
 #!/bin/sh
 
-piAddress="192.168.0.109"
+piAddress="192.168.0.110"
 piLogDirectory="/home/pi/Workshop/AquaBot/logs"
 
 while true; do
