@@ -54,4 +54,9 @@ It can be run using the following command.
 
 It will output logs to ./logs/temperature.log
 
-## Telegraf-InfluxDB-Graphana Stack (TIG Stack)
+## Telegraf-InfluxDB-Graphana Stack (TIG Stack
+
+
+## Wiring Diagram
+
+An equivalent diagram can be found here https://pimylifeup.com/raspberry-pi-temperature-sensor/.
