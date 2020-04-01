@@ -63,10 +63,16 @@ def read_temp_c():
         return temp_c
 
 def read_float_high():
-    return str(GPIO.input(17))
+    if str(GPIO.input(17)) == "1":
+        return 1
+    else:
+        return 0
 
 def read_float_low():
-    return str(GPIO.input(23))
+    if str(GPIO.input(23)) == "1":
+        return 1
+    else:
+        return 0
 
 metric = Metric("AquaBot")
 
@@ -76,6 +82,6 @@ while True:
     metric.add_tag('location', 'Surrey')
     metric.add_value('temperature', read_temp_c())
     metric.add_value('float_high', read_float_high())
-    metric.add_value('float_low', read_float_low()) 
+    metric.add_value('float_low', read_float_low())
     print(metric)
     logging.info(metric)
