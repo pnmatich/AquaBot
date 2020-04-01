@@ -7,11 +7,21 @@ import time
 from influxdb import InfluxDBClient
 from influx_line_protocol import Metric
 
+import time
+import RPi.GPIO as GPIO
+
 computerName=os.uname()[1]
 
 if computerName != 'raspberrypi':
     raise Exception('Computer named {} is not named raspberrypi'.format(computerName))
 
+# Setup float sensor pins
+GPIO.setmode(GPIO.BCM)
+# GPIO 23 & 17 set up as inputs.
+GPIO.setup(23, GPIO.IN)
+GPIO.setup(17, GPIO.IN)
+
+# Setup temp sensor pins
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
 
@@ -47,5 +57,7 @@ while True:
     metric.with_timestamp(now)
     metric.add_tag('location', 'Surrey')
     metric.add_value('temperature', read_temp_c())
+    metric.add_value('float_high', str(GPIO.input(17)))
+    metric.add_value('float_low', str(GPIO.input(23)))
     print(metric)
     logging.info(metric)
