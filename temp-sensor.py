@@ -70,9 +70,9 @@ def read_float_high():
 
 def read_float_low():
     if str(GPIO.input(23)) == "1":
-        return 1
+        return true
     else:
-        return 0
+        return false
 
 metric = Metric("AquaBot")
 
