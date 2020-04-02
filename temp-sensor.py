@@ -64,15 +64,15 @@ def read_temp_c():
 
 def read_float_high():
     if str(GPIO.input(17)) == "1":
-        return true
+        return True
     else:
-        return false
+        return False
 
 def read_float_low():
     if str(GPIO.input(23)) == "1":
-        return true
+        return True
     else:
-        return false
+        return False
 
 metric = Metric("AquaBot")
 
