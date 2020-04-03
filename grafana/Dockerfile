@@ -1,3 +1,3 @@
 FROM matisq/grafana:latest
 
-COPY *.json /opt/grafana/
+COPY *.json /usr/share/grafana/public/dashboards/
