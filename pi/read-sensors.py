@@ -67,9 +67,9 @@ starttime=time()
 while True:
     date = run(dateCommand, stdout=PIPE, stderr=PIPE, universal_newlines=True)
     run(["mosquitto_pub",
-    "--cert",   "/home/paulmatich/credentials/aquabot/certificate.pem",
-    "--cafile", "/home/paulmatich/credentials/aquabot/rootCA.pem",
-    "--key",    "/home/paulmatich/credentials/aquabot/private.key",
+    "--cert",   "./credentials/certificate.pem",
+    "--cafile", "./credentials/rootCA.pem",
+    "--key",    "./credentials/private.key",
     "-d",
     "-h",       "alvftq0926je9-ats.iot.us-east-2.amazonaws.com",
     "-p",       "8883",
@@ -79,7 +79,7 @@ while True:
     r'{"measurement": "sensor_readings",' +
     r'"time": "' + date.stdout.rstrip() + r'",' +
     r'"fields": {' +
-    r'"temperature": ' + read_temp_c() + r',' +
-    r'"float_low": '   + read_float_low() + r',' +
-    r'"float_high": '  + read_float_high() + r'}}'])
+    r'"temperature": ' + str(read_temp_c()) + r',' +
+    r'"float_low": '   + str(read_float_low()) + r',' +
+    r'"float_high": '  + str(read_float_high()) + r'}}'])
     sleep(5 - ((time() - starttime) % 5))
