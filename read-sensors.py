@@ -1,14 +1,13 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import os
 import glob
 import logging
-import time
+import RPi.GPIO as GPIO
+from time import sleep, time
+from subprocess import PIPE, run
 from influxdb import InfluxDBClient
 from influx_line_protocol import Metric
-
-import time
-import RPi.GPIO as GPIO
 
 computerName=os.uname()[1]
 
@@ -41,7 +40,7 @@ def read_temp_raw():
 def read_temp_c():
     lines = read_temp_raw()
     while lines[0].strip()[-3:] != 'YES':
-        time.sleep(0.2)
+        sleep(0.2)
         lines = read_temp_raw()
     equals_pos = lines[1].find('t=')
     if equals_pos != -1:
@@ -49,8 +48,6 @@ def read_temp_c():
         temp_c = int(temp_string) / 1000.0 # TEMP_STRING IS THE SENSOR OUTPUT, MAKE SURE IT'S AN INTEGER TO DO THE MATH
         temp_c = round(temp_c, 1) # ROUND THE RESULT TO 1 PLACE AFTER THE DECIMAL
         return temp_c
-
-metric = Metric("AquaBot")
 
 def read_float_high():
     if str(GPIO.input(17)) == "1":
@@ -64,12 +61,25 @@ def read_float_low():
     else:
         return 0
 
+dateCommand = ["date", "-u", "+%Y-%m-%dT%H:%M:%SZ"]
+
+starttime=time()
 while True:
-    now = int(round(time.time() * 1000000000))
-    metric.with_timestamp(now)
-    metric.add_tag('location', 'Surrey')
-    metric.add_value('float_high', read_float_high())
-    metric.add_value('float_low', read_float_low())
-    metric.add_value('temperature', read_temp_c())
-    print(metric)
-    logging.info(metric)
+    date = run(dateCommand, stdout=PIPE, stderr=PIPE, universal_newlines=True)
+    run(["mosquitto_pub",
+    "--cert",   "/home/paulmatich/credentials/aquabot/certificate.pem",
+    "--cafile", "/home/paulmatich/credentials/aquabot/rootCA.pem",
+    "--key",    "/home/paulmatich/credentials/aquabot/private.key",
+    "-d",
+    "-h",       "alvftq0926je9-ats.iot.us-east-2.amazonaws.com",
+    "-p",       "8883",
+    "-q",       "1",
+    "-t",       "aquabot-data",
+    "-m",
+    r'{"measurement": "sensor_readings",' +
+    r'"time": "' + date.stdout.rstrip() + r'",' +
+    r'"fields": {' +
+    r'"temperature": ' + read_temp_c() + r',' +
+    r'"float_low": '   + read_float_low() + r',' +
+    r'"float_high": '  + read_float_high() + r'}}'])
+    sleep(5 - ((time() - starttime) % 5))
