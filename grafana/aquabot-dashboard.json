@@ -31,11 +31,12 @@
       "options": {
         "fieldOptions": {
           "calcs": [
-            "mean"
+            "last"
           ],
           "defaults": {
             "max": 50,
-            "min": 0
+            "min": 0,
+            "unit": "celsius"
           },
           "mappings": [],
           "override": {},
@@ -623,5 +624,5 @@
   "timezone": "",
   "title": "Aquabot",
   "uid": "ASJJCRjZk",
-  "version": 19
+  "version": 4
 }
