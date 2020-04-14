@@ -15,8 +15,8 @@ dynamodb_table = dynamodb.Table('AquaBotData')
 
 # Create influxdb resource
 influxdb_client = InfluxDBClient(host='localhost', port=8086)
-influxdb_client.create_database('AquaBot')
-influxdb_client.switch_database('AquaBot')
+influxdb_client.create_database('telegraf')
+influxdb_client.switch_database('telegraf')
 
 last_timestamp=0
 start_time=time()
