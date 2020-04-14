@@ -48,24 +48,24 @@ influxdb-data:
     volumes:
         - /var/lib/influxdb
 
-telegraf:
-    build: telegraf
-    links:
-        - influxdb:influxdb
-    environment:
-        HOST_NAME: "telegraf"
-        INFLUXDB_HOST: "influxdb"
-        INFLUXDB_PORT: "8086"
-        DATABASE: "telegraf"
-    tty: true
-    volumes:
-        - ./logs:/AquaBot/logs/
-        - /var/run/docker.sock:/var/run/docker.sock
-    volumes_from:
-        - influxdb-data
-    privileged: true
-
-rsync:
-    build: rsync
-    volumes:
-        - ./logs:/AquaBot/logs/
+# telegraf:
+#     build: telegraf
+#     links:
+#         - influxdb:influxdb
+#     environment:
+#         HOST_NAME: "telegraf"
+#         INFLUXDB_HOST: "influxdb"
+#         INFLUXDB_PORT: "8086"
+#         DATABASE: "telegraf"
+#     tty: true
+#     volumes:
+#         - ./logs:/AquaBot/logs/
+#         - /var/run/docker.sock:/var/run/docker.sock
+#     volumes_from:
+#         - influxdb-data
+#     privileged: true
+#
+# rsync:
+#     build: rsync
+#     volumes:
+#         - ./logs:/AquaBot/logs/
