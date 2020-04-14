@@ -19,9 +19,9 @@
   "links": [],
   "panels": [
     {
-      "datasource": "InfluxDB",
+      "datasource": "Docker InfluxDB",
       "gridPos": {
-        "h": 3,
+        "h": 4,
         "w": 11,
         "x": 0,
         "y": 0
@@ -99,10 +99,10 @@
       "type": "gauge"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": "Docker InfluxDB",
       "gridPos": {
-        "h": 4,
-        "w": 4,
+        "h": 6,
+        "w": 3,
         "x": 11,
         "y": 0
       },
@@ -173,12 +173,12 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "InfluxDB",
+      "datasource": "Docker InfluxDB",
       "fill": 2,
       "gridPos": {
-        "h": 4,
-        "w": 9,
-        "x": 15,
+        "h": 6,
+        "w": 10,
+        "x": 14,
         "y": 0
       },
       "id": 2,
@@ -209,7 +209,7 @@
           "groupBy": [
             {
               "params": [
-                "$__interval"
+                "$interval"
               ],
               "type": "time"
             },
@@ -288,13 +288,13 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "InfluxDB",
+      "datasource": "Docker InfluxDB",
       "fill": 2,
       "gridPos": {
-        "h": 5,
+        "h": 8,
         "w": 11,
         "x": 0,
-        "y": 3
+        "y": 4
       },
       "id": 6,
       "legend": {
@@ -324,7 +324,7 @@
           "groupBy": [
             {
               "params": [
-                "$interval"
+                "$__interval"
               ],
               "type": "time"
             },
@@ -399,12 +399,12 @@
       }
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": "Docker InfluxDB",
       "gridPos": {
-        "h": 4,
-        "w": 4,
+        "h": 6,
+        "w": 3,
         "x": 11,
-        "y": 4
+        "y": 6
       },
       "id": 11,
       "links": [],
@@ -473,13 +473,13 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "InfluxDB",
+      "datasource": "Docker InfluxDB",
       "fill": 2,
       "gridPos": {
-        "h": 4,
-        "w": 9,
-        "x": 15,
-        "y": 4
+        "h": 6,
+        "w": 10,
+        "x": 14,
+        "y": 6
       },
       "id": 4,
       "legend": {
@@ -535,7 +535,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "last"
               }
             ]
           ],
@@ -592,7 +592,7 @@
     "list": []
   },
   "time": {
-    "from": "now-5m",
+    "from": "now-9h",
     "to": "now"
   },
   "timepicker": {
@@ -623,5 +623,5 @@
   "timezone": "",
   "title": "Aquabot",
   "uid": "ASJJCRjZk",
-  "version": 38
+  "version": 19
 }
