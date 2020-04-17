@@ -1,5 +1,6 @@
-#!/usr/bin/python3
+#!/usr/local/bin/python
 
+import influxdb
 from time import sleep, time
 from influxdb import InfluxDBClient
 from boto3.dynamodb.conditions import Key, Attr
@@ -13,7 +14,7 @@ dynamodb_table = dynamodb.Table('AquaBotData')
 
 print("INFO: creating influxdb client")
 # Create influxdb resource
-influxdb_client = InfluxDBClient(host='localhost', port=8086)
+influxdb_client = InfluxDBClient(host='influxdb', port=e)
 influxdb_client.create_database('telegraf')
 influxdb_client.switch_database('telegraf')
 
