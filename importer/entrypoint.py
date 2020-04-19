@@ -12,11 +12,17 @@ print("INFO: creating dynamodb client")
 dynamodb = boto3r('dynamodb')
 dynamodb_table = dynamodb.Table('AquaBotData')
 
-print("INFO: creating influxdb client")
+print("INFO: creating influxdb sensors client")
 # Create influxdb resource
-influxdb_client = InfluxDBClient(host='influxdb', port=e)
-influxdb_client.create_database('telegraf')
-influxdb_client.switch_database('telegraf')
+influxdb_client_sensors = InfluxDBClient(host='influxdb', port=8086)
+influxdb_client_sensors.create_database('telegraf')
+influxdb_client_sensors.switch_database('telegraf')
+
+print("INFO: creating influxdb last_sort_key client")
+# Create influxdb resource
+influxdb_client_last_sort_key = InfluxDBClient(host='influxdb', port=8086)
+influxdb_client_last_sort_key.create_database('last_sort_key')
+influxdb_client_last_sort_key.switch_database('last_sort_key')
 
 # Set initial time variables before start of loop
 print("INFO: beginning import loop")
@@ -38,7 +44,7 @@ while True:
     if response['Count'] > 0:
         payloads = [item["payload"] for item in response['Items']]
         last_timestamp = int(response['Items'][-1]['timestamp'])
-        influxdb_client.write_points(payloads,protocol='json')
+        influxdb_client_sensors.write_points(payloads,protocol='json')
 
     print(
             'INFO: '

@@ -5,4 +5,4 @@ RUN pip install boto3
 
 COPY entrypoint.py /
 
-CMD /entrypoint.py
+CMD ["python","-u","/entrypoint.py"]
