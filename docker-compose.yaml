@@ -6,7 +6,7 @@ services:
     grafana:
         image: matisq/grafana:latest
         ports:
-            - 3000:3000
+            - 5000:3000
         links:
             - influxdb:influxdb
         environment:
@@ -22,17 +22,36 @@ services:
             GRAFANA_PLUGINS_ENABLED: "false"
         restart: always
 
+
     influxdb:
-        image: matisq/influxdb:latest
+        container_name: influxdb
+        image: influxdb:1.7.9
+        hostname: influxdb
+        volumes:
+            - ./influx-data:/var/lib/influxdb
+        environment:
+            INFLUXDB_DB: "telegraf"
+            INFLUXDB_ADMIN_USER: "grafana"
+            INFLUXDB_ADMIN_PASSWORD: "grafana"
         ports:
             - 8083:8083
             - 8086:8086
-        environment:
-            INFLUX_DATABASE: "telegraf"
-            INLFUX_ADMIN_USER: "grafana"
-            INFLUX_ADMIN_PASS: "grafana"
+        restart: always
 
+
+    #
+    # influxdb:
+    #     image: matisq/influxdb:latest
+    #     ports:
+    #         - 8083:8083
+    #         - 8086:8086
+    #     environment:
+    #         INFLUX_DATABASE: "telegraf"
+    #         INLFUX_ADMIN_USER: "grafana"
+    #         INFLUX_ADMIN_PASS: "grafana"
+    #
     importer:
-        build: importer
+        # build: importer
+        build: importer-update-test
         volumes:
              - ./importer/credentials/aws:/root/.aws

@@ -55,6 +55,8 @@ while True:
           )
 
     if time() < start_time_loop + 5:
-        sleep(5 - ((time() - start_time) % 5))
+        time_to_sleep = 5 - ((time() - start_time) % 5)
+        print(time_to_sleep)
+        sleep(time_to_sleep)
     else:
         start_time=time()
