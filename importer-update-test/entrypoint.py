@@ -31,7 +31,11 @@ last_timestamp=0
 
 
 # print(influxdb_client_sensors.query('SHOW MEASUREMENTS;').get_points(measurement='sensor_readings')[0])
-last_timestamp = int(list(influxdb_client_sensors.query('SELECT last(dynamodb_timestamp) FROM "sensor_readings";').get_points(measurement='sensor_readings'))[0]['last'])
+
+try:
+  last_timestamp = int(list(influxdb_client_sensors.query('SELECT last(dynamodb_timestamp) FROM "sensor_readings";').get_points(measurement='sensor_readings'))[0]['last'])
+except:
+  print("INFO: could not set last timestamp (this might be the first time running import)")
 
 print(last_timestamp)
 print("Result: {0}".format(last_timestamp))
