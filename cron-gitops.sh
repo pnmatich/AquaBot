@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 # go to the directory this script is being run from
 cd $(dirname $0)
 
