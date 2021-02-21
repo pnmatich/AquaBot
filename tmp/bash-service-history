@@ -1,0 +1,39 @@
+1411  at aquabot.service
+1412  cat aquabot.service
+1422  vi aquabot.service
+1423  cat aquabot.service
+1426  at aquabot.service
+1427  vi aquabot.service
+1428  history | grep service
+1430  ls /lib/systemd/system/aquabot.service
+1431  ls -l /lib/systemd/system/aquabot.service
+1432  sudo cp aquabot.service /lib/systemd/system/aquabot.service
+1433  ls -l /lib/systemd/system/aquabot.service
+1434  sudo systemctl enable aquabot.service
+1435  sudo service aquabot status
+1436  sudo service aquabot restart
+1437  sudo service aquabot status
+1439  sudo service aquabot status
+1441  cat systemd/aquabot.service
+1445  vi systemd/aquabot.service
+1446  sudo service aquabot restart
+1447  sudo service aquabot status
+1449  sudo service aquabot status
+1450  sudo service aquabot restart
+1451  sudo service aquabot status
+1456  jsudo service aquabot restart
+1458  sudo service aquabot status
+1464  vi pi/systemd/aquabot.service
+1465  sudo service aquabot status
+1467  sudo cp aquabot.service /lib/systemd/system/aquabot.service
+1470  sudo cp aquabot.service /lib/systemd/system/aquabot.service
+1471  sudo service aquabot status
+1472  sudo service aquabot restart
+1474  sudo ls /lib/systemd/system/aquabot.service
+1475  sudo ls -l /lib/systemd/system/aquabot.service
+1477  sudo service aquabot restart
+1478  sudo service aquabot status
+1525  cat aquabot.service
+1526  service aquabot --status
+1534  sudo service aquabot status
+2000  history | grep service
