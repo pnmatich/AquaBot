@@ -51,7 +51,7 @@ def read_temp_c():
 
 def read_float_high():
     if str(GPIO.input(17)) == "1":
-        return 1
+        return 3
     else:
         return 0
 
