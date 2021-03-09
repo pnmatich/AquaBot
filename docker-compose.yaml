@@ -22,7 +22,6 @@ services:
             GRAFANA_PLUGINS_ENABLED: "false"
         restart: always
 
-
     influxdb:
         container_name: influxdb
         image: influxdb:1.7.9
@@ -50,8 +49,10 @@ services:
     #         INLFUX_ADMIN_USER: "grafana"
     #         INFLUX_ADMIN_PASS: "grafana"
     #
+
     importer:
         # build: importer
         build: importer-update-test
         volumes:
              - ./importer/credentials/aws:/root/.aws
+        restart: always
