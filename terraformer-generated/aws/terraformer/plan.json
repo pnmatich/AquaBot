@@ -1,0 +1,962 @@
+{
+	"Version": "v0.8.10",
+	"Provider": "aws",
+	"Options": {
+		"Resources": [
+			"dynamodb",
+			"iam",
+			"iot",
+			"budgets"
+		],
+		"Excludes": [],
+		"PathPattern": "{output}/{provider}/{service}/",
+		"PathOutput": "generated",
+		"State": "local",
+		"Bucket": "",
+		"Profile": "default",
+		"Verbose": false,
+		"Zone": "",
+		"Regions": [],
+		"Projects": null,
+		"ResourceGroup": "",
+		"Connect": true,
+		"Compact": false,
+		"Filter": [],
+		"Output": "hcl",
+		"RetryCount": 5,
+		"RetrySleepMs": 300
+	},
+	"Args": [
+		"",
+		"default"
+	],
+	"ImportedResource": {
+		"budgets": [
+			{
+				"InstanceInfo": {
+					"Id": "aws_budgets_budget.tfer--Don-0027-t-0020-Spend-0020-Money",
+					"ModulePath": null,
+					"Type": "aws_budgets_budget"
+				},
+				"InstanceState": {
+					"id": "600496911827:Don't Spend Money",
+					"attributes": {
+						"account_id": "600496911827",
+						"arn": "arn:aws:budgetservice::600496911827:budget/Don't Spend Money",
+						"budget_type": "COST",
+						"cost_filters.%": "0",
+						"cost_types.#": "1",
+						"cost_types.0.include_credit": "true",
+						"cost_types.0.include_discount": "true",
+						"cost_types.0.include_other_subscription": "true",
+						"cost_types.0.include_recurring": "true",
+						"cost_types.0.include_refund": "true",
+						"cost_types.0.include_subscription": "true",
+						"cost_types.0.include_support": "true",
+						"cost_types.0.include_tax": "true",
+						"cost_types.0.include_upfront": "true",
+						"cost_types.0.use_amortized": "false",
+						"cost_types.0.use_blended": "false",
+						"id": "600496911827:Don't Spend Money",
+						"limit_amount": "1.0",
+						"limit_unit": "USD",
+						"name": "Don't Spend Money",
+						"notification.#": "1",
+						"notification.0.comparison_operator": "GREATER_THAN",
+						"notification.0.notification_type": "ACTUAL",
+						"notification.0.subscriber_email_addresses.#": "1",
+						"notification.0.subscriber_email_addresses.0": "pnmatich@gmail.com",
+						"notification.0.subscriber_sns_topic_arns.#": "0",
+						"notification.0.threshold": "50",
+						"notification.0.threshold_type": "PERCENTAGE",
+						"time_period_end": "2087-06-15_00:00",
+						"time_period_start": "2017-12-01_00:00",
+						"time_unit": "MONTHLY"
+					},
+					"meta": {
+						"schema_version": 0
+					},
+					"tainted": false
+				},
+				"ResourceName": "tfer--Don-0027-t-0020-Spend-0020-Money",
+				"Provider": "aws",
+				"Item": {
+					"account_id": "600496911827",
+					"budget_type": "COST",
+					"cost_types": [
+						{
+							"include_credit": "true",
+							"include_discount": "true",
+							"include_other_subscription": "true",
+							"include_recurring": "true",
+							"include_refund": "true",
+							"include_subscription": "true",
+							"include_support": "true",
+							"include_tax": "true",
+							"include_upfront": "true",
+							"use_amortized": "false",
+							"use_blended": "false"
+						}
+					],
+					"limit_amount": "1.0",
+					"limit_unit": "USD",
+					"name": "Don't Spend Money",
+					"notification": [
+						{
+							"comparison_operator": "GREATER_THAN",
+							"notification_type": "ACTUAL",
+							"subscriber_email_addresses": [
+								"pnmatich@gmail.com"
+							],
+							"threshold": "50",
+							"threshold_type": "PERCENTAGE"
+						}
+					],
+					"time_period_end": "2087-06-15_00:00",
+					"time_period_start": "2017-12-01_00:00",
+					"time_unit": "MONTHLY"
+				},
+				"IgnoreKeys": [
+					"^id$",
+					"^arn$"
+				],
+				"SlowQueryRequired": false
+			}
+		],
+		"dynamodb": [
+			{
+				"InstanceInfo": {
+					"Id": "aws_dynamodb_table.tfer--AquaBotData",
+					"ModulePath": null,
+					"Type": "aws_dynamodb_table"
+				},
+				"InstanceState": {
+					"id": "AquaBotData",
+					"attributes": {
+						"arn": "arn:aws:dynamodb:us-east-2:600496911827:table/AquaBotData",
+						"attribute.#": "2",
+						"attribute.0.name": "id",
+						"attribute.0.type": "S",
+						"attribute.1.name": "timestamp",
+						"attribute.1.type": "N",
+						"billing_mode": "PROVISIONED",
+						"global_secondary_index.#": "0",
+						"hash_key": "id",
+						"id": "AquaBotData",
+						"local_secondary_index.#": "0",
+						"name": "AquaBotData",
+						"point_in_time_recovery.#": "1",
+						"point_in_time_recovery.0.enabled": "false",
+						"range_key": "timestamp",
+						"read_capacity": "5",
+						"replica.#": "0",
+						"server_side_encryption.#": "0",
+						"stream_arn": "",
+						"stream_enabled": "false",
+						"stream_label": "",
+						"stream_view_type": "",
+						"tags.%": "0",
+						"tags_all.%": "0",
+						"ttl.#": "1",
+						"ttl.0.attribute_name": "",
+						"ttl.0.enabled": "false",
+						"ttl.0.kms_key_arn": "",
+						"write_capacity": "5"
+					},
+					"meta": {
+						"schema_version": 1
+					},
+					"tainted": false
+				},
+				"ResourceName": "tfer--AquaBotData",
+				"Provider": "aws",
+				"Item": {
+					"attribute": [
+						{
+							"name": "timestamp",
+							"type": "N"
+						},
+						{
+							"name": "id",
+							"type": "S"
+						}
+					],
+					"billing_mode": "PROVISIONED",
+					"hash_key": "id",
+					"name": "AquaBotData",
+					"point_in_time_recovery": [
+						{
+							"enabled": "false"
+						}
+					],
+					"range_key": "timestamp",
+					"read_capacity": "5",
+					"stream_enabled": "false",
+					"write_capacity": "5"
+				},
+				"IgnoreKeys": [
+					"^id$",
+					"^stream_arn$",
+					"^stream_label$",
+					"^arn$"
+				],
+				"AllowEmptyValues": [
+					"tags."
+				],
+				"SlowQueryRequired": false
+			}
+		],
+		"iam": [
+			{
+				"InstanceInfo": {
+					"Id": "aws_iam_role.tfer--aquabot-002D-dynamo-002D-update-002D-role",
+					"ModulePath": null,
+					"Type": "aws_iam_role"
+				},
+				"InstanceState": {
+					"id": "aquabot-dynamo-update-role",
+					"attributes": {
+						"arn": "arn:aws:iam::600496911827:role/service-role/aquabot-dynamo-update-role",
+						"assume_role_policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"iot.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}",
+						"create_date": "2018-11-03T22:31:15Z",
+						"description": "",
+						"id": "aquabot-dynamo-update-role",
+						"inline_policy.#": "1",
+						"inline_policy.0.name": "",
+						"inline_policy.0.policy": "",
+						"managed_policy_arns.#": "1",
+						"managed_policy_arns.0": "arn:aws:iam::600496911827:policy/service-role/aws-iot-role-dynamoPut_-2102147375",
+						"max_session_duration": "3600",
+						"name": "aquabot-dynamo-update-role",
+						"path": "/service-role/",
+						"tags.%": "0",
+						"tags_all.%": "0",
+						"unique_id": "AROAJ4Q5BRAXACY524QVC"
+					},
+					"meta": {
+						"schema_version": 0
+					},
+					"tainted": false
+				},
+				"ResourceName": "tfer--aquabot-002D-dynamo-002D-update-002D-role",
+				"Provider": "aws",
+				"Item": {
+					"assume_role_policy": "\u003c\u003cPOLICY\n{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"iot.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}\nPOLICY",
+					"managed_policy_arns": [
+						"arn:aws:iam::600496911827:policy/service-role/aws-iot-role-dynamoPut_-2102147375"
+					],
+					"max_session_duration": "3600",
+					"name": "aquabot-dynamo-update-role",
+					"path": "/service-role/"
+				},
+				"IgnoreKeys": [
+					"^id$",
+					"^arn$",
+					"^unique_id$",
+					"^create_date$"
+				],
+				"AllowEmptyValues": [
+					"tags."
+				],
+				"SlowQueryRequired": false
+			},
+			{
+				"InstanceInfo": {
+					"Id": "aws_iam_user_policy_attachment.tfer--ProgrammaticAccessUser_AdministratorAccess",
+					"ModulePath": null,
+					"Type": "aws_iam_user_policy_attachment"
+				},
+				"InstanceState": {
+					"id": "ProgrammaticAccessUser/arn:aws:iam::aws:policy/AdministratorAccess",
+					"attributes": {
+						"id": "ProgrammaticAccessUser/arn:aws:iam::aws:policy/AdministratorAccess",
+						"policy_arn": "arn:aws:iam::aws:policy/AdministratorAccess",
+						"user": "ProgrammaticAccessUser"
+					},
+					"meta": {
+						"schema_version": 0
+					},
+					"tainted": false
+				},
+				"ResourceName": "tfer--ProgrammaticAccessUser_AdministratorAccess",
+				"Provider": "aws",
+				"Item": {
+					"policy_arn": "arn:aws:iam::aws:policy/AdministratorAccess",
+					"user": "ProgrammaticAccessUser"
+				},
+				"IgnoreKeys": [
+					"^id$"
+				],
+				"AllowEmptyValues": [
+					"tags."
+				],
+				"SlowQueryRequired": false
+			},
+			{
+				"InstanceInfo": {
+					"Id": "aws_iam_role.tfer--AWSServiceRoleForSupport",
+					"ModulePath": null,
+					"Type": "aws_iam_role"
+				},
+				"InstanceState": {
+					"id": "AWSServiceRoleForSupport",
+					"attributes": {
+						"arn": "arn:aws:iam::600496911827:role/aws-service-role/support.amazonaws.com/AWSServiceRoleForSupport",
+						"assume_role_policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"support.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}",
+						"create_date": "2018-08-20T23:43:43Z",
+						"description": "Enables resource access for AWS to provide billing, administrative and support services",
+						"id": "AWSServiceRoleForSupport",
+						"inline_policy.#": "1",
+						"inline_policy.0.name": "",
+						"inline_policy.0.policy": "",
+						"managed_policy_arns.#": "1",
+						"managed_policy_arns.0": "arn:aws:iam::aws:policy/aws-service-role/AWSSupportServiceRolePolicy",
+						"max_session_duration": "3600",
+						"name": "AWSServiceRoleForSupport",
+						"path": "/aws-service-role/support.amazonaws.com/",
+						"tags.%": "0",
+						"tags_all.%": "0",
+						"unique_id": "AROAISHGVIAKWPPHSZF62"
+					},
+					"meta": {
+						"schema_version": 0
+					},
+					"tainted": false
+				},
+				"ResourceName": "tfer--AWSServiceRoleForSupport",
+				"Provider": "aws",
+				"Item": {
+					"assume_role_policy": "\u003c\u003cPOLICY\n{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"support.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}\nPOLICY",
+					"description": "Enables resource access for AWS to provide billing, administrative and support services",
+					"managed_policy_arns": [
+						"arn:aws:iam::aws:policy/aws-service-role/AWSSupportServiceRolePolicy"
+					],
+					"max_session_duration": "3600",
+					"name": "AWSServiceRoleForSupport",
+					"path": "/aws-service-role/support.amazonaws.com/"
+				},
+				"IgnoreKeys": [
+					"^id$",
+					"^arn$",
+					"^unique_id$",
+					"^create_date$"
+				],
+				"AllowEmptyValues": [
+					"tags."
+				],
+				"SlowQueryRequired": false
+			},
+			{
+				"InstanceInfo": {
+					"Id": "aws_iam_role_policy_attachment.tfer--AWSServiceRoleForTrustedAdvisor_AWSTrustedAdvisorServiceRolePolicy",
+					"ModulePath": null,
+					"Type": "aws_iam_role_policy_attachment"
+				},
+				"InstanceState": {
+					"id": "AWSServiceRoleForTrustedAdvisor/arn:aws:iam::aws:policy/aws-service-role/AWSTrustedAdvisorServiceRolePolicy",
+					"attributes": {
+						"id": "AWSServiceRoleForTrustedAdvisor/arn:aws:iam::aws:policy/aws-service-role/AWSTrustedAdvisorServiceRolePolicy",
+						"policy_arn": "arn:aws:iam::aws:policy/aws-service-role/AWSTrustedAdvisorServiceRolePolicy",
+						"role": "AWSServiceRoleForTrustedAdvisor"
+					},
+					"meta": {
+						"schema_version": 0
+					},
+					"tainted": false
+				},
+				"ResourceName": "tfer--AWSServiceRoleForTrustedAdvisor_AWSTrustedAdvisorServiceRolePolicy",
+				"Provider": "aws",
+				"Item": {
+					"policy_arn": "arn:aws:iam::aws:policy/aws-service-role/AWSTrustedAdvisorServiceRolePolicy",
+					"role": "AWSServiceRoleForTrustedAdvisor"
+				},
+				"IgnoreKeys": [
+					"^id$"
+				],
+				"AllowEmptyValues": [
+					"tags."
+				],
+				"SlowQueryRequired": false
+			},
+			{
+				"InstanceInfo": {
+					"Id": "aws_iam_role_policy_attachment.tfer--aquabot-002D-dynamo-002D-update-002D-role_aws-002D-iot-002D-role-002D-dynamoPut_-002D-2102147375",
+					"ModulePath": null,
+					"Type": "aws_iam_role_policy_attachment"
+				},
+				"InstanceState": {
+					"id": "aquabot-dynamo-update-role/arn:aws:iam::600496911827:policy/service-role/aws-iot-role-dynamoPut_-2102147375",
+					"attributes": {
+						"id": "aquabot-dynamo-update-role/arn:aws:iam::600496911827:policy/service-role/aws-iot-role-dynamoPut_-2102147375",
+						"policy_arn": "arn:aws:iam::600496911827:policy/service-role/aws-iot-role-dynamoPut_-2102147375",
+						"role": "aquabot-dynamo-update-role"
+					},
+					"meta": {
+						"schema_version": 0
+					},
+					"tainted": false
+				},
+				"ResourceName": "tfer--aquabot-002D-dynamo-002D-update-002D-role_aws-002D-iot-002D-role-002D-dynamoPut_-002D-2102147375",
+				"Provider": "aws",
+				"Item": {
+					"policy_arn": "arn:aws:iam::600496911827:policy/service-role/aws-iot-role-dynamoPut_-2102147375",
+					"role": "aquabot-dynamo-update-role"
+				},
+				"IgnoreKeys": [
+					"^id$"
+				],
+				"AllowEmptyValues": [
+					"tags."
+				],
+				"SlowQueryRequired": false
+			},
+			{
+				"InstanceInfo": {
+					"Id": "aws_iam_user.tfer--AIDAJNSKOF3BNMN2Y5S2C",
+					"ModulePath": null,
+					"Type": "aws_iam_user"
+				},
+				"InstanceState": {
+					"id": "ProgrammaticAccessUser",
+					"attributes": {
+						"arn": "arn:aws:iam::600496911827:user/ProgrammaticAccessUser",
+						"force_destroy": "false",
+						"id": "ProgrammaticAccessUser",
+						"name": "ProgrammaticAccessUser",
+						"path": "/",
+						"tags.%": "0",
+						"tags_all.%": "0",
+						"unique_id": "AIDAJNSKOF3BNMN2Y5S2C"
+					},
+					"meta": {
+						"schema_version": 0
+					},
+					"tainted": false
+				},
+				"ResourceName": "tfer--AIDAJNSKOF3BNMN2Y5S2C",
+				"Provider": "aws",
+				"Item": {
+					"force_destroy": "false",
+					"name": "ProgrammaticAccessUser",
+					"path": "/"
+				},
+				"IgnoreKeys": [
+					"^id$",
+					"^arn$",
+					"^unique_id$"
+				],
+				"AllowEmptyValues": [
+					"tags."
+				],
+				"SlowQueryRequired": false
+			},
+			{
+				"InstanceInfo": {
+					"Id": "aws_iam_policy.tfer--aws-002D-iot-002D-role-002D-dynamoPut_-002D-2102147375",
+					"ModulePath": null,
+					"Type": "aws_iam_policy"
+				},
+				"InstanceState": {
+					"id": "arn:aws:iam::600496911827:policy/service-role/aws-iot-role-dynamoPut_-2102147375",
+					"attributes": {
+						"arn": "arn:aws:iam::600496911827:policy/service-role/aws-iot-role-dynamoPut_-2102147375",
+						"description": "",
+						"id": "arn:aws:iam::600496911827:policy/service-role/aws-iot-role-dynamoPut_-2102147375",
+						"name": "aws-iot-role-dynamoPut_-2102147375",
+						"path": "/service-role/",
+						"policy": "{\n    \"Version\": \"2012-10-17\",\n    \"Statement\": {\n        \"Effect\": \"Allow\",\n        \"Action\": \"dynamodb:PutItem\",\n        \"Resource\": \"arn:aws:dynamodb:us-east-2:600496911827:table/AquaBotData\"\n    }\n}",
+						"policy_id": "ANPAIDLPUE22E4LA4ON2S",
+						"tags.%": "0",
+						"tags_all.%": "0"
+					},
+					"meta": {
+						"schema_version": 0
+					},
+					"tainted": false
+				},
+				"ResourceName": "tfer--aws-002D-iot-002D-role-002D-dynamoPut_-002D-2102147375",
+				"Provider": "aws",
+				"Item": {
+					"name": "aws-iot-role-dynamoPut_-2102147375",
+					"path": "/service-role/",
+					"policy": "\u003c\u003cPOLICY\n{\n    \"Version\": \"2012-10-17\",\n    \"Statement\": {\n        \"Effect\": \"Allow\",\n        \"Action\": \"dynamodb:PutItem\",\n        \"Resource\": \"arn:aws:dynamodb:us-east-2:600496911827:table/AquaBotData\"\n    }\n}\nPOLICY"
+				},
+				"IgnoreKeys": [
+					"^id$",
+					"^policy_id$",
+					"^arn$"
+				],
+				"AllowEmptyValues": [
+					"tags."
+				],
+				"SlowQueryRequired": false
+			},
+			{
+				"InstanceInfo": {
+					"Id": "aws_iam_policy.tfer--aquabot-002D-dynamo-002D-read-002D-policy",
+					"ModulePath": null,
+					"Type": "aws_iam_policy"
+				},
+				"InstanceState": {
+					"id": "arn:aws:iam::600496911827:policy/aquabot-dynamo-read-policy",
+					"attributes": {
+						"arn": "arn:aws:iam::600496911827:policy/aquabot-dynamo-read-policy",
+						"description": "",
+						"id": "arn:aws:iam::600496911827:policy/aquabot-dynamo-read-policy",
+						"name": "aquabot-dynamo-read-policy",
+						"path": "/",
+						"policy": "{\n    \"Version\": \"2012-10-17\",\n    \"Statement\": [\n        {\n            \"Sid\": \"VisualEditor0\",\n            \"Effect\": \"Allow\",\n            \"Action\": [\n                \"dynamodb:DescribeTable\",\n                \"dynamodb:Scan\",\n                \"dynamodb:Query\"\n            ],\n            \"Resource\": \"arn:aws:dynamodb:us-east-2:600496911827:table/AquaBotData\"\n        }\n    ]\n}",
+						"policy_id": "ANPAJRJ5EPFXUGPZ2IJ4O",
+						"tags.%": "0",
+						"tags_all.%": "0"
+					},
+					"meta": {
+						"schema_version": 0
+					},
+					"tainted": false
+				},
+				"ResourceName": "tfer--aquabot-002D-dynamo-002D-read-002D-policy",
+				"Provider": "aws",
+				"Item": {
+					"name": "aquabot-dynamo-read-policy",
+					"path": "/",
+					"policy": "\u003c\u003cPOLICY\n{\n    \"Version\": \"2012-10-17\",\n    \"Statement\": [\n        {\n            \"Sid\": \"VisualEditor0\",\n            \"Effect\": \"Allow\",\n            \"Action\": [\n                \"dynamodb:DescribeTable\",\n                \"dynamodb:Scan\",\n                \"dynamodb:Query\"\n            ],\n            \"Resource\": \"arn:aws:dynamodb:us-east-2:600496911827:table/AquaBotData\"\n        }\n    ]\n}\nPOLICY"
+				},
+				"IgnoreKeys": [
+					"^id$",
+					"^policy_id$",
+					"^arn$"
+				],
+				"AllowEmptyValues": [
+					"tags."
+				],
+				"SlowQueryRequired": false
+			},
+			{
+				"InstanceInfo": {
+					"Id": "aws_iam_role_policy_attachment.tfer--AWSServiceRoleForSupport_AWSSupportServiceRolePolicy",
+					"ModulePath": null,
+					"Type": "aws_iam_role_policy_attachment"
+				},
+				"InstanceState": {
+					"id": "AWSServiceRoleForSupport/arn:aws:iam::aws:policy/aws-service-role/AWSSupportServiceRolePolicy",
+					"attributes": {
+						"id": "AWSServiceRoleForSupport/arn:aws:iam::aws:policy/aws-service-role/AWSSupportServiceRolePolicy",
+						"policy_arn": "arn:aws:iam::aws:policy/aws-service-role/AWSSupportServiceRolePolicy",
+						"role": "AWSServiceRoleForSupport"
+					},
+					"meta": {
+						"schema_version": 0
+					},
+					"tainted": false
+				},
+				"ResourceName": "tfer--AWSServiceRoleForSupport_AWSSupportServiceRolePolicy",
+				"Provider": "aws",
+				"Item": {
+					"policy_arn": "arn:aws:iam::aws:policy/aws-service-role/AWSSupportServiceRolePolicy",
+					"role": "AWSServiceRoleForSupport"
+				},
+				"IgnoreKeys": [
+					"^id$"
+				],
+				"AllowEmptyValues": [
+					"tags."
+				],
+				"SlowQueryRequired": false
+			},
+			{
+				"InstanceInfo": {
+					"Id": "aws_iam_user_policy_attachment.tfer--dynamo-002D-db-002D-dummy-002D-iot-002D-access_aquabot-002D-dynamo-002D-read-002D-policy",
+					"ModulePath": null,
+					"Type": "aws_iam_user_policy_attachment"
+				},
+				"InstanceState": {
+					"id": "dynamo-db-dummy-iot-access/arn:aws:iam::600496911827:policy/aquabot-dynamo-read-policy",
+					"attributes": {
+						"id": "dynamo-db-dummy-iot-access/arn:aws:iam::600496911827:policy/aquabot-dynamo-read-policy",
+						"policy_arn": "arn:aws:iam::600496911827:policy/aquabot-dynamo-read-policy",
+						"user": "dynamo-db-dummy-iot-access"
+					},
+					"meta": {
+						"schema_version": 0
+					},
+					"tainted": false
+				},
+				"ResourceName": "tfer--dynamo-002D-db-002D-dummy-002D-iot-002D-access_aquabot-002D-dynamo-002D-read-002D-policy",
+				"Provider": "aws",
+				"Item": {
+					"policy_arn": "arn:aws:iam::600496911827:policy/aquabot-dynamo-read-policy",
+					"user": "dynamo-db-dummy-iot-access"
+				},
+				"IgnoreKeys": [
+					"^id$"
+				],
+				"AllowEmptyValues": [
+					"tags."
+				],
+				"SlowQueryRequired": false
+			},
+			{
+				"InstanceInfo": {
+					"Id": "aws_iam_user.tfer--AIDAJL7GYFJSQZINCXVE6",
+					"ModulePath": null,
+					"Type": "aws_iam_user"
+				},
+				"InstanceState": {
+					"id": "dynamo-db-dummy-iot-access",
+					"attributes": {
+						"arn": "arn:aws:iam::600496911827:user/dynamo-db-dummy-iot-access",
+						"force_destroy": "false",
+						"id": "dynamo-db-dummy-iot-access",
+						"name": "dynamo-db-dummy-iot-access",
+						"path": "/",
+						"tags.%": "0",
+						"tags_all.%": "0",
+						"unique_id": "AIDAJL7GYFJSQZINCXVE6"
+					},
+					"meta": {
+						"schema_version": 0
+					},
+					"tainted": false
+				},
+				"ResourceName": "tfer--AIDAJL7GYFJSQZINCXVE6",
+				"Provider": "aws",
+				"Item": {
+					"force_destroy": "false",
+					"name": "dynamo-db-dummy-iot-access",
+					"path": "/"
+				},
+				"IgnoreKeys": [
+					"^id$",
+					"^arn$",
+					"^unique_id$"
+				],
+				"AllowEmptyValues": [
+					"tags."
+				],
+				"SlowQueryRequired": false
+			},
+			{
+				"InstanceInfo": {
+					"Id": "aws_iam_role.tfer--AWSServiceRoleForTrustedAdvisor",
+					"ModulePath": null,
+					"Type": "aws_iam_role"
+				},
+				"InstanceState": {
+					"id": "AWSServiceRoleForTrustedAdvisor",
+					"attributes": {
+						"arn": "arn:aws:iam::600496911827:role/aws-service-role/trustedadvisor.amazonaws.com/AWSServiceRoleForTrustedAdvisor",
+						"assume_role_policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"trustedadvisor.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}",
+						"create_date": "2018-08-23T14:39:46Z",
+						"description": "Access for the AWS Trusted Advisor Service to help reduce cost, increase performance, and improve security of your AWS environment.",
+						"id": "AWSServiceRoleForTrustedAdvisor",
+						"inline_policy.#": "1",
+						"inline_policy.0.name": "",
+						"inline_policy.0.policy": "",
+						"managed_policy_arns.#": "1",
+						"managed_policy_arns.0": "arn:aws:iam::aws:policy/aws-service-role/AWSTrustedAdvisorServiceRolePolicy",
+						"max_session_duration": "3600",
+						"name": "AWSServiceRoleForTrustedAdvisor",
+						"path": "/aws-service-role/trustedadvisor.amazonaws.com/",
+						"tags.%": "0",
+						"tags_all.%": "0",
+						"unique_id": "AROAIWFOSIXEA23RNH5KU"
+					},
+					"meta": {
+						"schema_version": 0
+					},
+					"tainted": false
+				},
+				"ResourceName": "tfer--AWSServiceRoleForTrustedAdvisor",
+				"Provider": "aws",
+				"Item": {
+					"assume_role_policy": "\u003c\u003cPOLICY\n{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"trustedadvisor.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}\nPOLICY",
+					"description": "Access for the AWS Trusted Advisor Service to help reduce cost, increase performance, and improve security of your AWS environment.",
+					"managed_policy_arns": [
+						"arn:aws:iam::aws:policy/aws-service-role/AWSTrustedAdvisorServiceRolePolicy"
+					],
+					"max_session_duration": "3600",
+					"name": "AWSServiceRoleForTrustedAdvisor",
+					"path": "/aws-service-role/trustedadvisor.amazonaws.com/"
+				},
+				"IgnoreKeys": [
+					"^id$",
+					"^arn$",
+					"^unique_id$",
+					"^create_date$"
+				],
+				"AllowEmptyValues": [
+					"tags."
+				],
+				"SlowQueryRequired": false
+			}
+		],
+		"iot": [
+			{
+				"InstanceInfo": {
+					"Id": "aws_iot_thing.tfer--Aquabot-002D-20180903",
+					"ModulePath": null,
+					"Type": "aws_iot_thing"
+				},
+				"InstanceState": {
+					"id": "Aquabot-20180903",
+					"attributes": {
+						"arn": "arn:aws:iot:us-east-2:600496911827:thing/Aquabot-20180903",
+						"attributes.%": "1",
+						"attributes.draining": "0",
+						"default_client_id": "Aquabot-20180903",
+						"id": "Aquabot-20180903",
+						"name": "Aquabot-20180903",
+						"thing_type_name": "Aquabot",
+						"version": "8"
+					},
+					"meta": {
+						"schema_version": 0
+					},
+					"tainted": false
+				},
+				"ResourceName": "tfer--Aquabot-002D-20180903",
+				"Provider": "aws",
+				"Item": {
+					"attributes": {
+						"draining": "0"
+					},
+					"name": "Aquabot-20180903",
+					"thing_type_name": "Aquabot"
+				},
+				"IgnoreKeys": [
+					"^id$",
+					"^arn$",
+					"^default_client_id$",
+					"^version$"
+				],
+				"AllowEmptyValues": [
+					"tags."
+				],
+				"SlowQueryRequired": false
+			},
+			{
+				"InstanceInfo": {
+					"Id": "aws_iot_thing.tfer--AquaBot1",
+					"ModulePath": null,
+					"Type": "aws_iot_thing"
+				},
+				"InstanceState": {
+					"id": "AquaBot1",
+					"attributes": {
+						"arn": "arn:aws:iot:us-east-2:600496911827:thing/AquaBot1",
+						"attributes.%": "2",
+						"attributes.ph": "unknown",
+						"attributes.temperature": "unknown",
+						"default_client_id": "AquaBot1",
+						"id": "AquaBot1",
+						"name": "AquaBot1",
+						"thing_type_name": "AquaBot",
+						"version": "1"
+					},
+					"meta": {
+						"schema_version": 0
+					},
+					"tainted": false
+				},
+				"ResourceName": "tfer--AquaBot1",
+				"Provider": "aws",
+				"Item": {
+					"attributes": {
+						"ph": "unknown",
+						"temperature": "unknown"
+					},
+					"name": "AquaBot1",
+					"thing_type_name": "AquaBot"
+				},
+				"IgnoreKeys": [
+					"^id$",
+					"^arn$",
+					"^default_client_id$",
+					"^version$"
+				],
+				"AllowEmptyValues": [
+					"tags."
+				],
+				"SlowQueryRequired": false
+			},
+			{
+				"InstanceInfo": {
+					"Id": "aws_iot_thing_type.tfer--Aquabot",
+					"ModulePath": null,
+					"Type": "aws_iot_thing_type"
+				},
+				"InstanceState": {
+					"id": "Aquabot",
+					"attributes": {
+						"arn": "arn:aws:iot:us-east-2:600496911827:thingtype/Aquabot",
+						"deprecated": "false",
+						"id": "Aquabot",
+						"name": "Aquabot",
+						"properties.#": "1",
+						"properties.0.description": "",
+						"properties.0.searchable_attributes.#": "3",
+						"properties.0.searchable_attributes.0": "draining",
+						"properties.0.searchable_attributes.1": "ph",
+						"properties.0.searchable_attributes.2": "temperature"
+					},
+					"meta": {
+						"schema_version": 0
+					},
+					"tainted": false
+				},
+				"ResourceName": "tfer--Aquabot",
+				"Provider": "aws",
+				"Item": {
+					"deprecated": "false",
+					"name": "Aquabot",
+					"properties": [
+						{
+							"searchable_attributes": [
+								"ph",
+								"temperature",
+								"draining"
+							]
+						}
+					]
+				},
+				"IgnoreKeys": [
+					"^id$",
+					"^arn$"
+				],
+				"AllowEmptyValues": [
+					"tags."
+				],
+				"SlowQueryRequired": false
+			},
+			{
+				"InstanceInfo": {
+					"Id": "aws_iot_thing_type.tfer--AquaBot",
+					"ModulePath": null,
+					"Type": "aws_iot_thing_type"
+				},
+				"InstanceState": {
+					"id": "AquaBot",
+					"attributes": {
+						"arn": "arn:aws:iot:us-east-2:600496911827:thingtype/AquaBot",
+						"deprecated": "true",
+						"id": "AquaBot",
+						"name": "AquaBot",
+						"properties.#": "1",
+						"properties.0.description": "Aquaponics monitoring system",
+						"properties.0.searchable_attributes.#": "2",
+						"properties.0.searchable_attributes.0": "ph",
+						"properties.0.searchable_attributes.1": "temperature"
+					},
+					"meta": {
+						"schema_version": 0
+					},
+					"tainted": false
+				},
+				"ResourceName": "tfer--AquaBot",
+				"Provider": "aws",
+				"Item": {
+					"deprecated": "true",
+					"name": "AquaBot",
+					"properties": [
+						{
+							"description": "Aquaponics monitoring system",
+							"searchable_attributes": [
+								"temperature",
+								"ph"
+							]
+						}
+					]
+				},
+				"IgnoreKeys": [
+					"^id$",
+					"^arn$"
+				],
+				"AllowEmptyValues": [
+					"tags."
+				],
+				"SlowQueryRequired": false
+			},
+			{
+				"InstanceInfo": {
+					"Id": "aws_iot_topic_rule.tfer--handball_aquabot_data_to_dynamodb",
+					"ModulePath": null,
+					"Type": "aws_iot_topic_rule"
+				},
+				"InstanceState": {
+					"id": "handball_aquabot_data_to_dynamodb",
+					"attributes": {
+						"arn": "arn:aws:iot:us-east-2:600496911827:rule/handball_aquabot_data_to_dynamodb",
+						"cloudwatch_alarm.#": "0",
+						"cloudwatch_metric.#": "0",
+						"description": "",
+						"dynamodb.#": "1",
+						"dynamodb.0.hash_key_field": "id",
+						"dynamodb.0.hash_key_type": "STRING",
+						"dynamodb.0.hash_key_value": "${topic()}",
+						"dynamodb.0.operation": "",
+						"dynamodb.0.payload_field": "payload",
+						"dynamodb.0.range_key_field": "timestamp",
+						"dynamodb.0.range_key_type": "NUMBER",
+						"dynamodb.0.range_key_value": "${timestamp()}",
+						"dynamodb.0.role_arn": "arn:aws:iam::600496911827:role/service-role/aquabot-dynamo-update-role",
+						"dynamodb.0.table_name": "AquaBotData",
+						"dynamodbv2.#": "0",
+						"elasticsearch.#": "0",
+						"enabled": "true",
+						"error_action.#": "0",
+						"firehose.#": "0",
+						"id": "handball_aquabot_data_to_dynamodb",
+						"iot_analytics.#": "0",
+						"iot_events.#": "0",
+						"kinesis.#": "0",
+						"lambda.#": "0",
+						"name": "handball_aquabot_data_to_dynamodb",
+						"republish.#": "0",
+						"s3.#": "0",
+						"sns.#": "0",
+						"sql": "SELECT * FROM 'aquabot-data'",
+						"sql_version": "2016-03-23",
+						"sqs.#": "0",
+						"step_functions.#": "0",
+						"tags.%": "0",
+						"tags_all.%": "0"
+					},
+					"meta": {
+						"schema_version": 0
+					},
+					"tainted": false
+				},
+				"ResourceName": "tfer--handball_aquabot_data_to_dynamodb",
+				"Provider": "aws",
+				"Item": {
+					"dynamodb": [
+						{
+							"hash_key_field": "id",
+							"hash_key_type": "STRING",
+							"hash_key_value": "${topic()}",
+							"payload_field": "payload",
+							"range_key_field": "timestamp",
+							"range_key_type": "NUMBER",
+							"range_key_value": "${timestamp()}",
+							"role_arn": "arn:aws:iam::600496911827:role/service-role/aquabot-dynamo-update-role",
+							"table_name": "AquaBotData"
+						}
+					],
+					"enabled": "true",
+					"name": "handball_aquabot_data_to_dynamodb",
+					"sql": "SELECT * FROM 'aquabot-data'",
+					"sql_version": "2016-03-23"
+				},
+				"IgnoreKeys": [
+					"^id$",
+					"^arn$"
+				],
+				"AllowEmptyValues": [
+					"tags."
+				],
+				"SlowQueryRequired": false
+			}
+		]
+	}
+}
