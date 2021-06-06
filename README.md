@@ -15,18 +15,21 @@ The following additional steps should also be taken:
 - set up passwordless ssh with ssh keys
     - https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md
     - create an ssh key on the monitoring station
-        - ssh-keygen -f ./AquaBot/rsync/ssh/id_rsa
+        - `ssh-keygen -f ./AquaBot/rsync/ssh/id_rsa`
     - copy the public key to ~/.ssh/authorized_keys on the raspberrypi
-- pip install influxdb influx_line_protocol
-    - sudo cp systemd/aquabot.service /lib/systemd/system/
-    - sudo systemctl daemon-reload
-    - sudo systemctl enable aquabot.service
-    - sudo su
-        - apt-get update
-        - apt-get unstall pip
-        - pip install influx influx_line_protocol
-        - reboot
-
+- `pip install influxdb influx_line_protocol`
+    - `sudo cp systemd/aquabot.service /lib/systemd/system/``
+    - `sudo systemctl daemon-reload`
+    - `sudo systemctl enable aquabot.service`
+    - `sudo su`
+        - `apt-get update`
+        - `apt-get unstall pip`
+        - `pip install influx influx_line_protocol`
+        - `reboot`
+- install gitops
+    - Add a new ssh key in github for the new aquabot
+    - `( crontab -l >> ~/.aquabot-gitops.log\n' ) | crontab`
+    - `( crontab -l && printf -- 'echo * * * * *  /home/pi/Workshop/AquaBot/cron-gitops.sh >> ~/.aquabot-gitops.log\n' ) | crontab`
 
 ### Setting up your arch linux box
 
