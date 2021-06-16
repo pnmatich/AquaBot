@@ -31,7 +31,7 @@ The following additional steps should also be taken:
     - `( crontab -l >> ~/.aquabot-gitops.log\n' ) | crontab`
     - `( crontab -l && printf -- 'echo * * * * *  /home/pi/Workshop/AquaBot/cron-gitops.sh >> ~/.aquabot-gitops.log\n' ) | crontab`
 
-### Setting up your arch linux box
+### Setting up your monitoring station (example uses arch linux package manager)
 
 #### Installing docker
 

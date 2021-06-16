@@ -38,9 +38,9 @@ The monitoring system can be deployed by running docker-compose up from the root
 
 The grafana dashboard can be accessed at http://localhost:8080.
 
-## Notifications
+## Alerts and Notifications
 
-Alerts and updates are delivered via email.
+Alerts and Notifications are delivered via email.
 
 ### Alerts
 
@@ -72,12 +72,16 @@ Alerts:
 - "ammonium high: harmful conditions for fish"
 - "nitrites high: harmful conditions for fish"
 
-### Updates
+### Notifications
 
-Updates are sent via emails at scheduled or unschedules times
+Notifications are sent via emails at scheduled or unschedules times
 
-Scheduled updates:
+Scheduled notifications:
 - Weekly high, low, and average of all relevant sensors
 
-Unscheduled updates:
+Unscheduled notifications:
 - "nitrates high: you could have more plants!"
+
+## Updates
+
+Updates to the AquaBot repo are pulled down from gitlab via a cron job that runs every 5 minutes (see cron-gitops.sh).
