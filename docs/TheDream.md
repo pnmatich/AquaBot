@@ -82,6 +82,59 @@ Scheduled notifications:
 Unscheduled notifications:
 - "nitrates high: you could have more plants!"
 
+## Initial setup
+
+### Monitoring Station
+
+The monitoring station can be set up on any computer that has docker and docker-compose installed. The grafana dashboard, influxdb local cache of dynamo db, and importer applications all run inside of docker containers. The can be built and stood up useing the following command.
+
+```
+docker-compose up -d && docker-compose logs -f importer
+```
+### AquaBot Registration
+
+#### Create an AWS Role with required IAM access policies
+
+#### Setting up registration credentials
+
+to set up registration credentials on the registration machine. Create files called `credentials` and `config` in the `AquaBot/registration/credentials/aws/` folder on the machine being used to register AquaBots.
+
+Example contents for `credentials`:
+```
+[default]
+aws_access_key_id = <REDACTED>
+aws_secret_access_key = <REDACTED>
+```
+
+Example contents for `config`:
+```
+[default]
+region = us-east-2
+```
+
+#### Registering a new AquaBot with terraform
+
+### AquaBot Raspberry Pi
+
+Copy the certificate.pem, rootCA.pem, and private.key files from registration, to the AquaBot/credentials/ folder on the Raspberry Pi.
+
+The Raspberry Pi AquaBot also needs to:
+- have sensors attached to the correct pins
+- add gitops cron job to the AquaBot crontab
+  - the cron job runs the init script if `~/.aquabot/GitopsInit` is missing
+    - the init script:
+      - turns on One-Wire Interface
+      - configures gpio pins
+      - run script to register itself to AWS IoT and generate credentials files
+      - adds service
+      - creates and enables the AquaBot service
+        - this service runs `pi/read-sensors.py`, every 5 seconds
+  - the cron job pulls updates, and then runs a `cron/main.sh` script
+    - this means updates to `main.sh` are pulled down before it is executed
+    - if a tag matching the aquabot id does not exist
+      - one is created saying the update was successful
+      - this new tag is pushed back to github, so it can be viewed by the monitoring station
+
 ## Updates
 
 Updates to the AquaBot repo are pulled down from gitlab via a cron job that runs every 5 minutes (see cron-gitops.sh).
