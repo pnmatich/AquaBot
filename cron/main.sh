@@ -1,8 +1,5 @@
 #!/bin/bash
 
-set -x
-
-
 # Create id file if it does not already exist
 id_file='/aquabot/id'
 

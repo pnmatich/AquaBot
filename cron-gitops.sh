@@ -5,14 +5,14 @@
 # cron/main.sh is excecuted after changes are pulled down, so any
 # commands to add should be added there.
 
-set -x
+
 
 # go to the directory this script is being run from
 aquabotDirectory="$(dirname $0)"
 cd ${aquabotDirectory}
 
 echo "[INFO] - $(date) directory name: $(dirname $0)" >> ~/.aquabot-gitops.log
-git fetch origin
-git pull origin master --rebase
+git fetch origin &>> ~/.aquabot-gitops.log
+git pull origin master &>> --rebase ~/.aquabot-gitops.log
 
 ${aquabotDirectory}/cron/main.sh
