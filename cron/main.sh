@@ -1,10 +1,13 @@
 #!/bin/bash
 
 # Create id file if it does not already exist
-id_file='/aquabot/id'
+id_file='~/aquabot/id'
+
+echo "[INFO] - $(date) running cron main.sh" >> ~/.aquabot-gitops.log
+
 
 if [ ! -f ${id_file} ]; then
-  mkdir -p /aquabot
+  mkdir -p '~/aquabot'
   echo "ab-1" > ${id_file}
 fi
 
