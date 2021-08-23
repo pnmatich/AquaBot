@@ -1,14 +1,12 @@
 #!/bin/bash
 
-# Create id file if it does not already exist
-id_file='~/aquabot/id'
-
 echo "[INFO] - $(date) running cron main.sh" >> ~/.aquabot-gitops.log
 
-
-if [ ! -f ${id_file} ]; then
+# Create id file if it does not already exist
+if [ ! -f ~/aquabot/id ]; then
+  echo "[INFO] - $(date) creating id file" >> ~/.aquabot-gitops.log
   mkdir -p ~/aquabot
-  echo "ab-1" > ${id_file}
+  echo "ab-1" > ~/aquabot/id
 fi
 
 # Create and push git tag if one does not already exist
