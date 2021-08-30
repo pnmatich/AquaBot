@@ -22,4 +22,4 @@ if [ $LOCAL != $REMOTE ]; then
 fi
 
 echo "[INFO] - $(date) running cron main.sh" >> ~/.aquabot-gitops.log
-${aquabotDirectory}/cron/main.sh
+${aquabotDirectory}/cron/main.sh &>> ~/.aquabot.log
