@@ -6,7 +6,7 @@ echo "[INFO] - $(date) running cron main.sh push test" >> ~/.aquabot-gitops.log
 if [ ! -f ~/aquabot/id ]; then
   echo "[INFO] - $(date) creating id file" >> ~/.aquabot-gitops.log
   mkdir -p ~/aquabot
-  echo "ab-1" > ~/aquabot/id
+  echo "ab2" > ~/aquabot/id
 fi
 
 # Create and push git tag if one does not already exist
