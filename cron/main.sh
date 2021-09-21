@@ -21,5 +21,4 @@ if [[ ! $(git describe --exact-match $(git rev-parse HEAD) 2>/dev/null) =~ ^ab.*
   git push origin ${tag_name}
   echo "[INFO] - done pushing tag ${tag_name}" >> ~/.aquabot-gitops.log
   sudo service aquabot restart
-  touch ~/.aquabot-log
 fi
