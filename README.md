@@ -17,15 +17,16 @@ The following additional steps should also be taken:
     - create an ssh key on the monitoring station
         - `ssh-keygen -f ./AquaBot/rsync/ssh/id_rsa`
     - copy the public key to ~/.ssh/authorized_keys on the raspberrypi
-- `pip install influxdb influx_line_protocol`
-    - `sudo cp systemd/aquabot.service /lib/systemd/system/``
+- run some commands
+    - `pip install influxdb influx_line_protocol`
+    - `sudo cp pi/systemd/aquabot.service /lib/systemd/system/``
     - `sudo systemctl daemon-reload`
     - `sudo systemctl enable aquabot.service`
     - `sudo su`
-        - `apt-get update`
-        - `apt-get unstall pip`
-        - `pip install influx influx_line_protocol`
-        - `reboot`
+    - `apt-get update`
+    - `apt-get unstall pip`
+    - `pip install influx influx_line_protocol`
+    - `reboot`
 - install gitops
     - Add a new ssh key in github for the new aquabot
     - `( crontab -l >> ~/.aquabot-gitops.log\n' ) | crontab`
