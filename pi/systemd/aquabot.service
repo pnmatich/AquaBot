@@ -4,7 +4,7 @@ After=multi-user.target
 
 [Service]
 WorkingDirectory=/home/pi/Workshop/AquaBot/pi/
-ExecStart=/usr/bin/python3 ./read-sensors.py
+ExecStart=/usr/bin/python3 ./main.py
 User=pi
 Group=pi
 
