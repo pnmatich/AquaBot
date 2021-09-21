@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo "[INFO] - $(date) running cron main.sh push test" >> ~/.aquabot-gitops.log
-
 # Create id file if it does not already exist
 if [ ! -f ~/aquabot/id ]; then
   echo "[INFO] - $(date) creating id file" >> ~/.aquabot-gitops.log
