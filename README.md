@@ -3,7 +3,7 @@ Aquaponics monitoring system
 
 ## Requirements
 
-### Setting up your raspberry pi and monitoring station
+### Setting up your raspberry pi
 
 The raspberry pi for this project should be setup to use the raspbian operating system.
 
@@ -50,7 +50,7 @@ systemctl status docker.service
 
 ## Temperature sensor python script
 
-The temperature sensor script reads the output of the tempurature sensor on the GPIO pins, and writes the output to stdout.
+The temperature sensor script reads the output of the temperature sensor on the GPIO pins, and writes the output to stdout.
 
 It can be run using the following command.
 ```./temp-sensor.py
@@ -58,7 +58,12 @@ It can be run using the following command.
 
 It will output logs to ./logs/temperature.log
 
-## Telegraf-InfluxDB-Graphana Stack (TIG Stack
+## Importer-InfluxDB-Graphana Stack (IIG Stack)
+
+This project originally used a TIG Stack (Telegraf-InfluxDB-Graphana Stack), but the Telegraf component did not come to fruition. Instead an importer written in python is used to copy data from DynamoDB to the local InfluxDB database.
+
+The importer copies up to 5000 datapoints every 5 seconds. This use close to 87.0 amazon read credits. AWS Free Tier allows for 25 amazon read credits every second. After a bit of math, the importer falls within the Free Tier range.
+
 
 
 ## Wiring Diagram
