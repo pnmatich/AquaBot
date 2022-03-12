@@ -1,7 +1,12 @@
 # AquaBot
-Aquaponics monitoring system
 
-## Requirements
+The AquaBot project aims to provide a set of tools, to configure and operate a cloud native aquaponics monitoring system. The monitoring system requires, a raspberry pi for collecting metrics from an aquaponics system, and a monitoring workstation to view and analyze the metrics. an AWS account for long term metrics storage is also required. The setup instructions for each of these components, especially the AWS section, are currently incomplete.
+
+The raspberry pi is configured to read from attached sensors, and send their readings to an AWS IOT Gateway, via MQTT messages. Once the MQTT messages hit the AWS IOT Gateway, a rule writes the reading to a DynamoDB table.
+
+The goal of the AWS account portion of this project, is to store aquaponics system metrics on serverless cloud based infrastructure, that can be run using the AWS Free Tier, and stood up in an automated fashion.
+
+The monitoring workstation runs a set of docker containers, which include Grafana, InfluxDB, and Importer. Grafana provides a local monitoring platform, accessible through a web browser. InfluxDB is used to store a continually updating local mirror of the metrics stored in DynamoDB. The Importer is purpose build for the AquaBot project. It continually updates InfluxDB with metrics pulled from DynamoDB.
 
 ### Setting up your raspberry pi
 
