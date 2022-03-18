@@ -3,7 +3,6 @@
 mkdir -p ~/aquabot
 mkdir -p ~/Workshop
 cd ~/Workshop
-rm -rf ./AquaBot
 git clone git@github.com:pnmatich/AquaBot.git
 cd ./AquaBot
 git config --global user.email "pnmatich@gmail.com"

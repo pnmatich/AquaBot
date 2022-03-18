@@ -31,10 +31,11 @@ The following additional steps should also be taken:
     - `apt-get unstall pip`
     - `pip install influx influx_line_protocol`
     - `reboot`
-- install gitops
-    - Add a new ssh key in github for the new aquabot
-    - `( crontab -l >> ~/.aquabot-gitops.log\n' ) | crontab`
-    - `( crontab -l && printf -- 'echo * * * * *  /home/pi/Workshop/AquaBot/cron-gitops.sh >> ~/.aquabot-gitops.log\n' ) | crontab`
+- clone the AquaBot repository into a `~/Workshop` directory
+- setup a cron job to pull changes to this repository
+  - add a new ssh key in github for the new aquabot
+  - run `( crontab -l && printf -- 'echo * * * * *  /home/pi/Workshop/AquaBot/cron-gitops.sh >> ~/.aquabot-gitops.log\n' ) | crontab`
+  - this cron job also create and pushes git tags with status updates
 
 ### Setting up your monitoring station (example uses arch linux package manager)
 
