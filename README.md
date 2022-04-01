@@ -74,7 +74,7 @@ The importer copies up to 5000 datapoints every 5 seconds. This use close to 87.
 A pre-build dashboard can be imported through the Grafana UI. The dashboard filepath is `grafana/aquabot-dashboard.json`.
 
 
-![Dashboard 100 days](docs/dashboard-100-days.png)
+![Dashboard 14 days](docs/dashboard-14-days.png)
 
 ## Wiring Diagram
 
