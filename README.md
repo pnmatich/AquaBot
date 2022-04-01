@@ -69,6 +69,13 @@ This project originally used a TIG Stack (Telegraf-InfluxDB-Graphana Stack), but
 
 The importer copies up to 5000 datapoints every 5 seconds. This use close to 87.0 amazon read credits. AWS Free Tier allows for 25 amazon read credits every second. After a bit of math, the importer falls within the Free Tier range.
 
+## Grafana Dashboard
+
+A pre-build dashboard can be imported through the Grafana UI. The dashboard filepath is `grafana/aquabot-dashboard.json`.
+
+
+![Dashboard 100 days](docs/dashboard-100-days.png)
+
 ## Wiring Diagram
 
 An equivalent diagram can be found [here](https://pimylifeup.com/raspberry-pi-temperature-sensor/).
