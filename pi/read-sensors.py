@@ -61,6 +61,11 @@ def read_float_low():
     else:
         return 0
 
+
+def read_commit():
+    return "placeholder"
+
+
 dateCommand = ["date", "-u", "+%Y-%m-%dT%H:%M:%SZ"]
 
 starttime=time()
@@ -79,6 +84,7 @@ while True:
     r'{"measurement": "sensor_readings",' +
     r'"time": "' + date.stdout.rstrip() + r'",' +
     r'"fields": {' +
+    r'"commit": '      + str(read_commit()) + r',' +
     r'"temperature": ' + str(read_temp_c()) + r',' +
     r'"float_low": '   + str(read_float_low()) + r',' +
     r'"float_high": '  + str(read_float_high()) + r'}}'])
