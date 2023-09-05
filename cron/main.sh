@@ -7,7 +7,7 @@ if [ ! -f ~/aquabot/id ]; then
   echo "ab2" > ~/aquabot/id
 fi
 
-aquabot_id=$(cat ~/aquabot/id)
+aquabot_id=$(cat ~/aquabot/id || echo unknown)
 
 # Create and push git tag if one does not already exist
 if [[ ! $(git describe --exact-match $(git rev-parse HEAD) 2>/dev/null) =~ ^ab.*$ ]]; then
