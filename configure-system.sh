@@ -7,7 +7,7 @@ git clone git@github.com:pnmatich/AquaBot.git
 cd ./AquaBot
 git config pull.rebase true
 git config --global user.email "pnmatich@gmail.com"
-git config --global user.name "Paul Matich AquaBot Bravo"
+git config --global user.name "Paul Matich AquaBot"
 
 sudo cp pi/systemd/aquabot.service /lib/systemd/system/
 sudo systemctl daemon-reload

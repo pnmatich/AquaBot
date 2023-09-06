@@ -82,7 +82,11 @@ Scheduled notifications:
 Unscheduled notifications:
 - "nitrates high: you could have more plants!"
 
-## Initial setup
+### AquaBot Registration
+
+## AquaBot Initial setup
+
+See [Automated Startup](docs/AutomatedStartup.md).
 
 ### Monitoring Station
 
@@ -91,7 +95,6 @@ The monitoring station can be set up on any computer that has docker and docker-
 ```
 docker-compose up -d && docker-compose logs -f importer
 ```
-### AquaBot Registration
 
 #### Create an AWS Role with required IAM access policies
 
@@ -115,6 +118,8 @@ region = us-east-2
 #### Registering a new AquaBot with terraform
 
 ### AquaBot Raspberry Pi
+
+This section is outdated! See See [Automated Startup](docs/AutomatedStartup.md).
 
 Copy the certificate.pem, rootCA.pem, and private.key files from registration, to the AquaBot/credentials/ folder on the Raspberry Pi.
 
