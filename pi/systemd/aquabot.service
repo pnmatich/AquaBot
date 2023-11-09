@@ -3,8 +3,8 @@ Description=Monitors aquaponics systems
 After=multi-user.target
 
 [Service]
-WorkingDirectory=/home/pi/Workshop/AquaBot/pi/
-ExecStart=/usr/bin/python3 ./main.py
+WorkingDirectory=/home/pi/Workshop/AquaBot/
+ExecStart=/usr/bin/python3 ./pi/main.py
 User=pi
 Group=pi
 
