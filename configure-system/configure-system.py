@@ -12,9 +12,8 @@ This script:
 - does this all idempotently
 '''
 
-
+import os
 import subprocess
-# from flask import Flask, render_template
 
 def run_command(cmd, cwd):
     """Helper function for running bash processes."""
@@ -24,20 +23,22 @@ homeDir="/home/pi"
 workDir="/home/pi/Workshop"
 abDir="/home/pi/Workshop/AquaBot"
 
-run_command('ls -l /dev/null', './')
-
+if not os.path.isdir("/home/pi/Workshop/AquaBot"):
+    run_command('git clone git@github.com:pnmatich/AquaBot.git', workDir)
 
 
 # Create necessary directories if they don't already exist
 run_command('mkdir -p aquabot', homeDir)
 run_command('mkdir -p Workshop', homeDir)
 
-run_command('git clone git@github.com:pnmatich/AquaBot.git', workDir)
-run_command('git config pull.rebase true', workDir)
-run_command('git config --global user.email "pnmatich@gmail.com"', workDir)
-run_command('git config --global user.name "Paul Matich AquaBot"', workDir)
+run_command('git config pull.rebase true', abDir)
+run_command('git config --global user.email "pnmatich@gmail.com"', abDir)
+run_command('git config --global user.name "Paul Matich AquaBot"', abDir)
+run_command('git fetch origin', abDir)
+run_command('git pull origin main', abDir)
 
-
+run_command('git fetch origin', abDir)
+run_command('git pull origin main', abDir)
 run_command('sudo cp pi/systemd/aquabot.service /lib/systemd/system/', abDir)
 run_command('sudo systemctl daemon-reload', abDir)
 run_command('sudo systemctl enable aquabot.service', abDir)
