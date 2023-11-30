@@ -1,0 +1,7 @@
+[Unit]
+Description=Periodic Test
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python /home/pi/Workshop/AquaBot/pi/systemd/test.py
+StandardError=journal

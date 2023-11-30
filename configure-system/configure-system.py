@@ -14,6 +14,9 @@ This script:
 
 import os
 import subprocess
+#import argparse
+
+#parser = argparse.ArgumentParser(description="Configure AquaBot System")
 
 def run_command(cmd, cwd):
     """Helper function for running bash processes."""
@@ -39,9 +42,20 @@ run_command('git pull origin main', abDir)
 
 run_command('git fetch origin', abDir)
 run_command('git pull origin main', abDir)
-run_command('sudo cp pi/systemd/aquabot.service /lib/systemd/system/', abDir)
+run_command('sudo cp pi/systemd/test.service /lib/systemd/system/', abDir)
+run_command('sudo cp pi/systemd/test.timer /lib/systemd/system/', abDir)
 run_command('sudo systemctl daemon-reload', abDir)
-run_command('sudo systemctl enable aquabot.service', abDir)
+run_command('sudo systemctl enable test.timer', abDir)
+run_command('sudo systemctl start test.timer', abDir)
+
+
+'''
+$sudo systemctl enable app.timer
+$sudo systemctl start app.timer
+sudo cp pi/systemd/aquabot.service /etc/systemd/system/
+sudo systemctl enable my_python_app.service
+sudo systemctl start my_python_app.service
+'''
 
 # These files need to be copied to the pi
 # "./credentials/certificate.pem"
